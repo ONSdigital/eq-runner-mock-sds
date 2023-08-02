@@ -60,7 +60,7 @@ def test_get_sds_dataset_ids_not_found():
 
 
 def test_load_mock_data():
-    mock_data = load_mock_data("mock_data/supplementary_data_no_repeat.json")
+    mock_data = load_mock_data("mock_data/supplementary_data.json")
     assert isinstance(mock_data, dict)
 
 

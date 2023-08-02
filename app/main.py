@@ -22,10 +22,8 @@ def get_sds_data(
 ) -> MutableMapping:
     # The mock current does not make use of identifier
     guid_filename_map = {
-        "c067f6de-6d64-42b1-8b02-431a3486c178": "supplementary_data_no_repeat",
-        "693dc252-2e90-4412-bd9c-c4d953e36fcd": "supplementary_data_no_repeat_v2",
-        "34a80231-c49a-44d0-91a6-8fe1fb190e64": "supplementary_data_with_repeat",
-        "6b378962-f0c7-4e8c-947e-7d24ee1b6b88": "supplementary_data_with_repeat_v2",
+        "c067f6de-6d64-42b1-8b02-431a3486c178": "supplementary_data",
+        "693dc252-2e90-4412-bd9c-c4d953e36fcd": "supplementary_data_v2",
     }
 
     if filename := guid_filename_map.get(str(dataset_id)):
@@ -48,8 +46,12 @@ def load_mock_data(filename: str) -> dict | list:
 
 
 def load_mock_sds_dataset_metadata(survey_id: str) -> list[dict]:
-    if survey_id == "123":
-        return load_mock_data("mock_data/supplementary_dataset_metadata_response.json")
+    survey_id_filename_map = {
+        "123": "supplementary_dataset_metadata_response",
+    }
+
+    if filename := survey_id_filename_map.get(survey_id):
+        return load_mock_data(f"mock_data/{filename}.json")
 
     raise HTTPException(status_code=404)
 
