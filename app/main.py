@@ -35,7 +35,10 @@ def get_sds_data(
 
 
 @app.get("/v1/dataset_metadata")
-def get_sds_dataset_ids(survey_id: str = Query()) -> list[dict]:
+def get_sds_dataset_ids(
+    survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
+) -> list[dict]:
+    # The mock current does not make use of period_id
     return load_mock_sds_dataset_metadata(survey_id)
 
 
