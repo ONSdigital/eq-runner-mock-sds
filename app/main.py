@@ -18,7 +18,7 @@ with open("dev-keys.yml", encoding="UTF-8") as keys_file:
 
 @app.get("/v1/unit_data")
 def get_sds_data(
-    dataset_id: UUID = Query(), identifier: str = Query(min_length=1)
+    dataset_id: UUID, identifier: str = Query(min_length=1)
 ) -> MutableMapping:
     # The mock current does not make use of identifier
     guid_filename_map = {
