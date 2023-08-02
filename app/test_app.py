@@ -41,14 +41,20 @@ def test_get_sds_data_invalid_uuid():
 
 
 def test_get_sds_dataset_ids_found():
-    response = client.get("/v1/dataset_metadata", params={"survey_id": "123"})
+    response = client.get(
+        "/v1/dataset_metadata", params={"survey_id": "123", "period_id": "202301"}
+    )
     assert response.status_code == 200
     assert isinstance(response.json(), list)
 
 
 def test_get_sds_dataset_ids_not_found():
     response = client.get(
-        "/v1/dataset_metadata", params={"survey_id": "non_existent_survey_id"}
+        "/v1/dataset_metadata",
+        params={
+            "survey_id": "non_existent_survey_id",
+            "period_id": "non_existent_period_id",
+        },
     )
     assert response.status_code == 404
 
