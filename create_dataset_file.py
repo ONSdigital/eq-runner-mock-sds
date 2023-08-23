@@ -41,7 +41,7 @@ def main():
 
         # Create a new data structure
         new_data = {
-            "title": "Dummy prepop data",
+            "title": f"Dummy prepop data {idx}",
             "survey_id": survey_id,
             "period_id": "201605",
             "schema_version": "v1",
