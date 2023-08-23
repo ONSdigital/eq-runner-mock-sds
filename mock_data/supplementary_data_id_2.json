@@ -1,0 +1,131 @@
+{
+    "dataset_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+    "survey_id": "456",
+    "data": {
+        "schema_version": "v2",
+        "identifier": "12346789012B",
+        "company_name": "SuperMart",
+        "company_details": {
+            "telephone_number": "02219876543",
+            "email": "contact@supermart.com"
+        },
+        "note": {
+            "title": "Annual Revenue",
+            "description": "Total annual revenue of the company",
+            "example": {
+                "title": "Financial Report",
+                "description": "Consolidated revenue across all branches"
+            }
+        },
+        "guidance": "Additional instructions for completing the survey",
+        "total_uk_sales": 750000.00,
+        "incorporation_date": "1995-08-15",
+        "items": {
+            "products": [
+                {
+                    "identifier": "11223344",
+                    "name": "Electronics and Gadgets",
+                    "cn_codes": "5601 + 5602 + 5603",
+                    "guidance_include": {
+                        "title": "Include",
+                        "list": [
+                            "smartphones",
+                            "laptops"
+                        ]
+                    },
+                    "guidance_exclude": {
+                        "title": "Exclude",
+                        "list": [
+                            "cables, accessories, software",
+                            "for industrial use"
+                        ]
+                    },
+                    "value_sales": {
+                        "answer_code": "11223344",
+                        "label": "Revenue from sales"
+                    },
+                    "volume_sales": {
+                        "answer_code": "11223345",
+                        "label": "Total units sold",
+                        "unit_label": "Pieces"
+                    },
+                    "total_volume": {
+                        "answer_code": "11223346",
+                        "label": "Total production volume",
+                        "unit_label": "Pieces"
+                    }
+                },
+                {
+                    "identifier": "55667788",
+                    "name": "Home Decor",
+                    "cn_codes": "9401 + 9402 + 9403",
+                    "guidance_include": {
+                        "title": "Include",
+                        "list": [
+                            "paintings",
+                            "vases"
+                        ]
+                    },
+                    "value_sales": {
+                        "answer_code": "55667788",
+                        "label": "Sales value"
+                    },
+                    "volume_sales": {
+                        "answer_code": "55667789",
+                        "label": "Quantity sold",
+                        "unit_label": "Pieces"
+                    },
+                    "total_volume": {
+                        "answer_code": "55667790",
+                        "label": "Total production quantity",
+                        "unit_label": "Pieces"
+                    }
+                }
+            ],
+            "employees": [
+                {
+                    "identifier": "987001",
+                    "personal_details": {
+                        "forename": "Alice",
+                        "surname": "Johnson",
+                        "address": {
+                            "postcode": "NW5 2AB",
+                            "house_number": "8",
+                            "city": "London"
+                        }
+                    },
+                    "employment_details": {
+                        "job_title": "Sales Associate",
+                        "start_date": "2018-03-20",
+                        "salary": {
+                            "payroll_number": "65432",
+                            "value": "28000",
+                            "currency": "GBP"
+                        }
+                    }
+                },
+                {
+                    "identifier": "987002",
+                    "personal_details": {
+                        "forename": "Ethan",
+                        "surname": "Miller",
+                        "address": {
+                            "postcode": "M14 7XY",
+                            "house_number": "45",
+                            "city": "Manchester"
+                        }
+                    },
+                    "employment_details": {
+                        "job_title": "Warehouse Manager",
+                        "start_date": "2016-09-15",
+                        "salary": {
+                            "payroll_number": "43210",
+                            "value": "32000",
+                            "currency": "GBP"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
