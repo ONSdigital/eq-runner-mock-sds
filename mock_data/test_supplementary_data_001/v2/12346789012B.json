@@ -1,0 +1,126 @@
+{
+    "schema_version": "v2",
+    "identifier": "12346789012B",
+    "company_name": "FreshGro",
+    "company_details": {
+        "telephone_number": "02211223344",
+        "email": "contact@freshgro.com"
+    },
+    "note": {
+        "title": "Annual Sales Value",
+        "description": "Total value of products sold annually",
+        "example": {
+            "title": "Includes",
+            "description": "Sales across all European stores"
+        }
+    },
+    "total_uk_sales": 720000.00,
+    "incorporation_date": "2000-05-10",
+    "items": {
+        "products": [
+            {
+                "identifier": "11223344",
+                "name": "Fresh Produce",
+                "cn_codes": "1101 + 1102 + 1103",
+                "guidance_include": {
+                    "title": "Include",
+                    "list": [
+                        "organic fruits",
+                        "vegetables"
+                    ]
+                },
+                "guidance_exclude": {
+                    "title": "Exclude",
+                    "list": [
+                        "canned goods",
+                        "frozen products"
+                    ]
+                },
+                "value_sales": {
+                    "answer_code": "11223344",
+                    "label": "Sales Value"
+                },
+                "volume_sales": {
+                    "answer_code": "11223345",
+                    "label": "Sold Quantity",
+                    "unit_label": "Kilograms"
+                },
+                "total_volume": {
+                    "answer_code": "11223346",
+                    "label": "Total Production",
+                    "unit_label": "Kilograms"
+                }
+            },
+            {
+                "identifier": "55667788",
+                "name": "Kitchen Essentials",
+                "cn_codes": "1601 + 1602 + 1603",
+                "guidance_include": {
+                    "title": "Include",
+                    "list": [
+                        "cutlery",
+                        "cooking utensils"
+                    ]
+                },
+                "value_sales": {
+                    "answer_code": "55667788",
+                    "label": "Revenue from Sales"
+                },
+                "volume_sales": {
+                    "answer_code": "55667789",
+                    "label": "Quantity Sold",
+                    "unit_label": "Pieces"
+                },
+                "total_volume": {
+                    "answer_code": "55667790",
+                    "label": "Total Production",
+                    "unit_label": "Pieces"
+                }
+            }
+        ],
+        "employees": [
+            {
+                "identifier": "987001",
+                "personal_details": {
+                    "forename": "Emily",
+                    "surname": "Clark",
+                    "address": {
+                        "postcode": "NW5 3DE",
+                        "house_number": "6",
+                        "city": "London"
+                    }
+                },
+                "employment_details": {
+                    "job_title": "Sales Representative",
+                    "start_date": "2017-02-15",
+                    "salary": {
+                        "payroll_number": "76543",
+                        "value": "28000",
+                        "currency": "GBP"
+                    }
+                }
+            },
+            {
+                "identifier": "987002",
+                "personal_details": {
+                    "forename": "Oliver",
+                    "surname": "Smith",
+                    "address": {
+                        "postcode": "M15 8AB",
+                        "house_number": "32",
+                        "city": "Manchester"
+                    }
+                },
+                "employment_details": {
+                    "job_title": "Warehouse Supervisor",
+                    "start_date": "2015-09-20",
+                    "salary": {
+                        "payroll_number": "54321",
+                        "value": "32000",
+                        "currency": "GBP"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -58,10 +58,9 @@ def load_mock_sds_dataset_metadata(survey_id: str) -> list[dict]:
 
 def encrypt_mock_data(mock_data: MutableMapping) -> MutableMapping:
     key = keys.get_key(purpose=KEY_PURPOSE_SDS, key_type="private")
-    mock_data["data"] = JWEHelper.encrypt_with_key(
-        json.dumps(mock_data["data"]), key.kid, key.as_jwk()
+    return JWEHelper.encrypt_with_key(
+        json.dumps(mock_data), key.kid, key.as_jwk()
     )
-    return mock_data
 
 
 if __name__ == "__main__":

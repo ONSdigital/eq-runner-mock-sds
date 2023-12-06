@@ -1,0 +1,52 @@
+{
+  "schema_version": "v1",
+  "identifier": "34942807969",
+  "vat": {
+    "registration_number": "123456789",
+    "subsidiary_identifier": "123"
+  },
+  "employer_paye": {
+    "tax_office_number": "123",
+    "reference": "AB456"
+  },
+  "address": [
+    "SOUTH CERNEY WORKS",
+    "SHAWELL LANE",
+    "BEENHAM",
+    "STAFFS",
+    "BEDFORDSHIRE",
+    "GL4 5YU"
+  ],
+  "items": {
+    "local-units": [
+      {
+        "identifier": "3340224",
+        "name": "STUBBS BUILDING PRODUCTS LTD",
+        "trading_name": "STUBBS PRODUCTS",
+        "business_description": "PROVIDER OF CONSTRUCTION MATERIALS AND SUPPLIES",
+        "address": [
+          "WELLINGTON ROAD",
+          "LOCHMABEN",
+          "SWINDON",
+          "BEDS",
+          "GLOS",
+          "DE41 2WA"
+        ]
+      },
+      {
+        "identifier": "5567890",
+        "name": "SMITH ELECTRONICS",
+        "trading_name": "SMITH TECH",
+        "business_description": "ELECTRONICS MANUFACTURING",
+        "address": [
+          "ELECTRONIC AVENUE",
+          "TECHNO PARK",
+          "CIRCUIT CITY",
+          "ELECTROLAND",
+          "GADGETVILLE",
+          "EL34 5EC"
+        ]
+      }
+    ]
+  }
+}
