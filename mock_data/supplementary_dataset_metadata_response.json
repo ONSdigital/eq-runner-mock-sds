@@ -19,7 +19,7 @@
         "sds_published_at": "2023-07-01T11:25:01Z",
         "total_reporting_units": 2,
         "schema_version": "v1.0.0",
-        "sds_dataset_version": 1,
+        "sds_dataset_version": 2,
         "filename": "",
         "dataset_id": "693dc252-2e90-4412-bd9c-c4d953e36fcd"
     },
@@ -31,7 +31,7 @@
         "sds_published_at": "2023-10-11T11:55:01Z",
         "total_reporting_units": 2,
         "schema_version": "v1.0.0",
-        "sds_dataset_version": 1,
+        "sds_dataset_version": 3,
         "filename": "",
         "dataset_id": "9b418603-ba90-4c93-851a-f9cecfbda06f"
     }
