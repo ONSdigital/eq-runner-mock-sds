@@ -24,6 +24,7 @@ def get_sds_data(
     guid_filename_map = {
         "c067f6de-6d64-42b1-8b02-431a3486c178": "supplementary_data",
         "693dc252-2e90-4412-bd9c-c4d953e36fcd": "supplementary_data_v2",
+        "9b418603-ba90-4c93-851a-f9cecfbda06f": "supplementary_data_v3",
     }
 
     if filename := guid_filename_map.get(str(dataset_id)):
