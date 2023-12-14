@@ -3,7 +3,7 @@ name: Main
 on:
   push:
     branches:
-      - support-tiles-dev
+      - main
 
 jobs:
   docker-push:
