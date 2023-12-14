@@ -3,7 +3,7 @@
     "survey_id": "123",
     "data": {
         "schema_version": "v1",
-        "identifier": "12346789012A",
+        "identifier": "12345678901",
         "company_name": "Lidl",
         "company_details": {
             "telephone_number": "01174564561",
