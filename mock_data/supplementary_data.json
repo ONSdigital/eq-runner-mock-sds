@@ -1,131 +1,347 @@
 {
-    "dataset_id": "c067f6de-6d64-42b1-8b02-431a3486c178",
-    "survey_id": "123",
-    "data": {
-        "schema_version": "v1",
-        "identifier": "12345678901",
-        "company_name": "Tesco",
-        "company_details": {
-            "telephone_number": "01171231231",
-            "email": "contact@tesco.org"
-        },
-        "note": {
-            "title": "Value of total sales",
-            "description": "Total value of goods sold during the period of the return",
-            "example": {
-                "title": "Including",
-                "description": "Sales across all UK stores"
+    "title": "Prepop data for 068",
+    "survey_id": "068",
+    "period_id": "202309",
+    "form_types": [
+        "0001"
+    ],
+    "schema_version": "v1",
+    "data": [
+        {
+            "identifier": "11128644382",
+            "unit_data": {
+                "identifier": "11128644382",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "0 BETHANY BRANCH",
+                                "MURPHYLAND",
+                                "SAMANTHAVILLE"
+                            ],
+                            "identifier": "24856110",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 3 GREGORY NECK",
+                                "BENFORT",
+                                "SOUTH ABIGAILBOROUGH"
+                            ],
+                            "identifier": "32684876",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "30 MAURICE PARKWAYS",
+                                "LAKE STUART",
+                                "EAST JAMES"
+                            ],
+                            "identifier": "91957878",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "FLAT 04N LOWE JUNCTION",
+                                "JAYBOROUGH"
+                            ],
+                            "identifier": "95442353",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 30H KENNEDY STREETS",
+                                "NEW JUSTINSIDE",
+                                "MAURICEBURY"
+                            ],
+                            "identifier": "13747403",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "448 AMBER COURT",
+                                "JENNINGSMOUTH",
+                                "GRAHAMHAVEN"
+                            ],
+                            "identifier": "10319402",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "94 NEWMAN BRANCH",
+                                "PORT ANNETTE",
+                                "WEST JOYCE"
+                            ],
+                            "identifier": "98271317",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "3 STANLEY KEYS",
+                                "ERICVIEW",
+                                "JOSEPHINEVILLE",
+                                "DOWNSHIRE",
+                                "WEDNESBERRY"
+                            ],
+                            "identifier": "15114237",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "6 LUCAS FORDS",
+                                "GILLBERG",
+                                "NEWTONSHIRE"
+                            ],
+                            "identifier": "75266514",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 19I MOORE RUE",
+                                "MURPHYMOUTH",
+                                "PORT JEMMA"
+                            ],
+                            "identifier": "43722384",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "FLAT 8 WILLIAMS FORD",
+                                "OLIVIABURGH",
+                                "EAST MITCHELL"
+                            ],
+                            "identifier": "95214873",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "FLAT 1 DANIELLE VALLEY",
+                                "SOUTH BRADLEY",
+                                "SOUTH KEITH"
+                            ],
+                            "identifier": "64599223",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "35 KENNETH WALL",
+                                "EAST PHILIP",
+                                "NORTH ANTONY"
+                            ],
+                            "identifier": "10795684",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "FLAT 61O NIGEL LODGE",
+                                "DANIELCHESTER",
+                                "GREAT HARDWICK"
+                            ],
+                            "identifier": "15253361",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "90 ROBERTS RIVER",
+                                "SOUTH EILEENHAVEN",
+                                "EAST BRADLEY"
+                            ],
+                            "identifier": "14079153",
+                            "name": "NICHOLLS GROUP"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 98 MURRAY LOCK",
+                                "PORT ELAINELAND",
+                                "KIMBERLEYBURGH",
+                                "LOWER BOTHER"
+                            ],
+                            "identifier": "X1049848",
+                            "name": "NICHOLLS GROUP"
+                        }
+                    ]
+                },
+                "schema_version": "v1"
             }
         },
-        "guidance": "Some supplementary guidance about the survey",
-        "total_uk_sales": 555000.00,
-        "incorporation_date": "1947-11-27",
-        "items": {
-            "products": [
-                {
-                    "identifier": "89929001",
-                    "name": "Articles and equipment for sports or outdoor games",
-                    "cn_codes": "2504 + 250610 + 2512 + 2519 + 2524",
-                    "guidance_include": {
-                        "title": "Include",
-                        "list": [
-                            "for children's playgrounds",
-                            "swimming pools and paddling pools"
-                        ]
-                    },
-                    "guidance_exclude": {
-                        "title": "Exclude",
-                        "list": [
-                            "sports holdalls, gloves, clothing of textile materials, footwear, protective eyewear, rackets, balls, skates",
-                            "for skiing, water sports, golf, fishing', for skiing, water sports, golf, fishing, table tennis, PE, gymnastics, athletics"
-                        ]
-                    },
-                    "value_sales": {
-                        "answer_code": "89929001",
-                        "label": "Value of sales"
-                    },
-                    "volume_sales": {
-                        "answer_code": "89929002",
-                        "label": "Volume of sales",
-                        "unit_label": "Tonnes"
-                    },
-                    "total_volume": {
-                        "answer_code": "89929005",
-                        "label": "Total volume produced",
-                        "unit_label": "Tonnes"
-                    }
+        {
+            "identifier": "11191422789",
+            "unit_data": {
+                "identifier": "11191422789",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "FLAT 53 BILLY CAUSEWAY",
+                                "LAKE THOMASSHIRE",
+                                "EAST ROSIE"
+                            ],
+                            "identifier": "11991963",
+                            "name": "SHAW BROWN AND WOODS"
+                        }
+                    ]
                 },
-                {
-                    "identifier": "202346331",
-                    "name": "Kitchen Equipment",
-                    "cn_codes": "1028 + 5908 + 5910 + 591110 + 591120",
-                    "guidance_include": {
-                        "title": "Include",
-                        "list": [
-                            "pots and pans",
-                            "chopping board"
-                        ]
-                    },
-                    "value_sales": {
-                        "answer_code": "20234633101",
-                        "label": "Value of sales"
-                    },
-                    "volume_sales": {
-                        "answer_code": "20234633102",
-                        "label": "Volume of sales",
-                        "unit_label": "Kilogram"
-                    },
-                    "total_volume": {
-                        "answer_code": "20234633103",
-                        "label": "Total volume produced",
-                        "unit_label": "Kilogram"
-                    }
-                }
-            ],
-            "employees": [
-                {
-                    "identifier": "429001",
-                    "personal_details": {
-                        "forename": "Harry",
-                        "surname": "Potter",
-                        "address": {
-                            "postcode": "BS1 1AJ",
-                            "house_number": "12",
-                            "city": "Bristol"
+                "schema_version": "v1"
+            }
+        },
+        {
+            "identifier": "11819147109",
+            "unit_data": {
+                "identifier": "11819147109",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "FLAT 35 DUFFY MILLS",
+                                "PARKINFURT",
+                                "SOUTH LEWISFURT"
+                            ],
+                            "identifier": "49524302",
+                            "name": "RICHARDSON DEAN AND SMITH"
                         }
-                    },
-                    "employment_details": {
-                        "job_title": "Customer assistant",
-                        "start_date": "2020-01-01",
-                        "salary": {
-                            "payroll_number": "54345",
-                            "value": "25000",
-                            "currency": "GBP"
-                        }
-                    }
+                    ]
                 },
-                {
-                    "identifier": "429002",
-                    "personal_details": {
-                        "forename": "Clark",
-                        "surname": "Kent",
-                        "address": {
-                            "postcode": "E1 7DD",
-                            "house_number": "21",
-                            "city": "London"
+                "schema_version": "v1"
+            }
+        },
+        {
+            "identifier": "12488649925",
+            "unit_data": {
+                "identifier": "12488649925",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "FLAT 24N WINTER ROW",
+                                "WEST CLAIRESTAD",
+                                "STANLEYBERG",
+                                "KILPORTH"
+                            ],
+                            "identifier": "12558735",
+                            "name": "ROBINSON-TURNER"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 4 JONES PORT",
+                                "TURNERVILLE",
+                                "KHANSTAD"
+                            ],
+                            "identifier": "10839465",
+                            "name": "ROBINSON-TURNER"
                         }
-                    },
-                    "employment_details": {
-                        "job_title": "Warehouse operative",
-                        "start_date": "2015-05-10",
-                        "salary": {
-                            "payroll_number": "34123",
-                            "value": "29000",
-                            "currency": "GBP"
+                    ]
+                },
+                "schema_version": "v1"
+            }
+        },
+        {
+            "identifier": "14419021332",
+            "unit_data": {
+                "identifier": "14419021332",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "STUDIO 79K GRIFFITHS SKYWAY",
+                                "NORTH MOHAMED",
+                                "WELLSFORT",
+                                "NORTH MONKSDALE"
+                            ],
+                            "identifier": "20860772",
+                            "name": "BLACK-SHAW"
+                        },
+                        {
+                            "address": [
+                                "46 ELLIS PARKWAY",
+                                "LAKE HEATHERVILLE",
+                                "GERALDBERG"
+                            ],
+                            "identifier": "15388584",
+                            "name": "BLACK-SHAW"
+                        },
+                        {
+                            "address": [
+                                "492 MARIA AVENUE",
+                                "JOSHMOUTH",
+                                "NEW DIANE"
+                            ],
+                            "identifier": "82582865",
+                            "name": "BLACK-SHAW"
+                        },
+                        {
+                            "address": [
+                                "3 CARL FOREST",
+                                "GIBBSHAVEN",
+                                "SCOTTFORT",
+                                "HOVERSHAM"
+                            ],
+                            "identifier": "23825949",
+                            "name": "BLACK-SHAW"
                         }
-                    }
-                }
-            ]
+                    ]
+                },
+                "schema_version": "v1"
+            }
+        },
+        {
+            "identifier": "16455062402",
+            "unit_data": {
+                "identifier": "16455062402",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "510 BENNETT INLET",
+                                "PORT STEVEN",
+                                "ERICSHIRE"
+                            ],
+                            "identifier": "46244184",
+                            "name": "GREEN-MORGAN"
+                        }
+                    ]
+                },
+                "schema_version": "v1"
+            }
+        },
+        {
+            "identifier": "17106189549",
+            "unit_data": {
+                "identifier": "17106189549",
+                "items": {
+                    "local-units": [
+                        {
+                            "address": [
+                                "25 MARIA MOUNTAIN",
+                                "LAKE STEPHANIE",
+                                "WILSONBOROUGH",
+                                "FROTHINGMOUTH",
+                                "DIMPLEBERRY"
+                            ],
+                            "identifier": "24289549",
+                            "name": "PERRY PAYNE AND RUSSELL"
+                        },
+                        {
+                            "address": [
+                                "89 JENNIFER ORCHARD",
+                                "BARBARAMOUTH",
+                                "SHANNONTOWN"
+                            ],
+                            "identifier": "74372486",
+                            "name": "PERRY PAYNE AND RUSSELL"
+                        },
+                        {
+                            "address": [
+                                "STUDIO 53J SHANNON MOUNTAIN",
+                                "NIXONVILLE",
+                                "MASONHAVEN"
+                            ],
+                            "identifier": "16243120",
+                            "name": "PERRY PAYNE AND RUSSELL"
+                        }
+                    ]
+                },
+                "schema_version": "v1"
+            }
         }
-    }
+    ]
 }

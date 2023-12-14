@@ -20,18 +20,16 @@ with open("dev-keys.yml", encoding="UTF-8") as keys_file:
 def get_sds_data(
     dataset_id: UUID, identifier: str = Query(min_length=1)
 ) -> MutableMapping:
-    # The mock current does not make use of identifier
-    guid_filename_map = {
-        "c067f6de-6d64-42b1-8b02-431a3486c178": "supplementary_data",
-        "693dc252-2e90-4412-bd9c-c4d953e36fcd": "supplementary_data_v2",
-        "9b418603-ba90-4c93-851a-f9cecfbda06f": "supplementary_data_v3",
+    mock_data = load_mock_data("mock_data/supplementary_data.json")
+
+    data_by_id = {row["identifier"]: row["unit_data"] for row in mock_data["data"]}
+    base_response = {
+        "dataset_id": "c067f6de-6d64-42b1-8b02-431a3486c178",
+        "survey_id": "068",
+        "data": data_by_id[identifier]
     }
 
-    if filename := guid_filename_map.get(str(dataset_id)):
-        return encrypt_mock_data(load_mock_data(f"mock_data/{filename}.json"))
-
-    raise HTTPException(status_code=404)
-
+    return encrypt_mock_data(base_response)
 
 @app.get("/v1/dataset_metadata")
 def get_sds_dataset_ids(
@@ -48,7 +46,7 @@ def load_mock_data(filename: str) -> dict | list:
 
 def load_mock_sds_dataset_metadata(survey_id: str) -> list[dict]:
     survey_id_filename_map = {
-        "123": "supplementary_dataset_metadata_response",
+        "068": "supplementary_dataset_metadata_response",
     }
 
     if filename := survey_id_filename_map.get(survey_id):
