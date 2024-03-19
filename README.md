@@ -18,11 +18,12 @@ poetry install
 
 ## Running Locally
 
+# TODO: Add a section about the preprocessing that's required to reorganise the folder structures etc
+
 To run the FastAPI application locally using `uvicorn`, use the following command:
 
 ```bash
 make run
-
 ```
 
 The application will be accessible at `http://localhost:5003`.

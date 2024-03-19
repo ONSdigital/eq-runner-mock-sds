@@ -29,5 +29,7 @@ COPY . /app
 # Expose the port that Gunicorn will listen on
 EXPOSE 5003
 
+RUN make build
+
 # Start Gunicorn to serve the application
 CMD ["gunicorn", "app.main:app", "-b", "0.0.0.0:5003", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "0"]
