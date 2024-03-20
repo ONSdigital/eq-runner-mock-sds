@@ -159,7 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-# Ignore loaded in sds data, but exclude test subfolder (modified by this repo only)
-# TODO: Gracefully exclude the mock_data/test/ subdirs
-mock_data/
-!mock_data/test/
+# To unignore the mock/test/ path, we need to unignore parent directory mock_data first
+!mock_data/
+mock_data/*
+!mock_data/test
