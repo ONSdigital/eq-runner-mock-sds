@@ -17,4 +17,4 @@ load-example-data:
 	./scripts/load_mock_data.sh
 
 reorganise-example-data-paths:
-	poetry run python reorganise_mock_data_paths.py
+	poetry run python ./scripts/reorganise_mock_data_paths.py
