@@ -1,12 +1,11 @@
 import json
 from pathlib import Path
 
-MOCK_DATA_PATH = Path(__file__).parent / "mock_data"
+MOCK_DATA_PATH = Path(__file__).parent.parent / "mock_data"
 EXCLUDED_FOLDER = MOCK_DATA_PATH / "test"
 
 
 def reorganise_mock_data():
-    # Create a predefined list of files so that newly created ones aren't picked up again in loop
     json_files = list(MOCK_DATA_PATH.rglob("*.json"))
 
     for schema_path in json_files:
