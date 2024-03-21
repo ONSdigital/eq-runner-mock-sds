@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+REPO_NAME="sds-schema-definitions"
+SDS_SCHEMA_DEFINITIONS_REPO="onsdigital/${REPO_NAME}"
+
+DOWNLOAD_URL="https://github.com/${SDS_SCHEMA_DEFINITIONS_REPO}/archive/refs/heads/main.zip"
+DOWNLOAD_NAME="${REPO_NAME}-main"
+
+echo "Fetching ${DOWNLOAD_URL}"
+
+TEMP_DIR=$(mktemp -d)
+
+curl -L --url "${DOWNLOAD_URL}" --output "${TEMP_DIR}/${DOWNLOAD_NAME}"
+
+unzip -o "${TEMP_DIR}/${DOWNLOAD_NAME}" "${DOWNLOAD_NAME}/examples/*" -d .
+
+# idempotent - replace all mock data examples
+for path in "${DOWNLOAD_NAME}"/examples/*; do
+  folder=$(basename "$path")
+  rm -rf ./mock_data/"${folder}"
+  mv -f "${path}" ./mock_data/
+done
+
+rm -rf "${DOWNLOAD_NAME}"
+rm -rf "${TEMP_DIR}"
