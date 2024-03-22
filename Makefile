@@ -13,7 +13,6 @@ test:
 build: load-example-data reorganise-example-data-paths
 
 load-example-data:
-	# TODO: move to python script?
 	./scripts/load_mock_data.sh
 
 reorganise-example-data-paths:
