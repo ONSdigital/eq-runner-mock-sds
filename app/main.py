@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import MutableMapping
 from uuid import UUID
 
+import uvicorn
 import yaml
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel
@@ -134,7 +135,7 @@ def build_dataset_metadata(
         "sds_dataset_version": get_version_number(path.name),
         "filename": "",
         "dataset_id": dataset_id,
-        "title": f"{path.parent.name} {path.name} supplementary data (survey_id: {survey_id})",
+        "title": f"{path.name} {path.parent.name} supplementary data",
     }
 
     return DatasetMetadata.model_validate({**dataset_metadata}, from_attributes=True)
@@ -210,8 +211,4 @@ def encrypt_mock_data(mock_data: MutableMapping) -> str:
 
 
 if __name__ == "__main__":
-    # uvicorn.run(app, host="localhost", port=5003)
-    # metadata = get_dataset_metadata("123")
-    # print(metadata)
-    data = get_unit_data(UUID("7b049fcb-aec7-83c6-375d-5f166b5f5005"), "34942807969")
-    print(data)
+    uvicorn.run(app, host="localhost", port=5003)
