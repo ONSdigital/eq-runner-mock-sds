@@ -18,8 +18,21 @@ poetry install
 
 ## Running Locally
 
-# TODO: Add a section about the preprocessing that's required to reorganise the folder structures etc
+### Prerequisites
+To launch business surveys that make use of supplementary data, you'll first need to pull down example unit data from 
+the [sds-schema-definitions](https://github.com/ONSdigital/sds-schema-definitions/tree/main/examples) examples. To do 
+this, run the following command:
 
+```bash
+make build
+```
+
+This will arrange the example data directories into a structure that can be used by this API.
+
+**IMPORTANT:** The hardcoded `MOCK_DATA_PATHS_BY_SURVEY_ID` in `app/main.py` will need to be updated if **any** of the 
+`sds-schema-definitions` example folders change
+
+## Running 
 To run the FastAPI application locally using `uvicorn`, use the following command:
 
 ```bash

@@ -34,10 +34,10 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
         "241",  # BRS
     ],
     "roofing_tiles_slate_sand_and_gravel": [
-        "068",  # Roofling tiles
+        "068",  # Roofing tiles
         "071",  # Slate
         "066",  # Sand and & Gravel (Land Won) - TODO: will need a PR to separate into 066 and 076 folder
-        "076",  # "Sand & Gravel (Marine Dredged)"
+        "076",  # Sand & Gravel (Marine Dredged)
     ],
 }
 
@@ -145,7 +145,7 @@ def build_unit_data(
     *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> UnitData:
     json_data = {
-        json_file.stem: json.loads(json_file.read_text())
+        json_file.stem: encrypt_mock_data(json.loads(json_file.read_text()))
         for json_file in path.glob("*.json")
     }
 
@@ -155,7 +155,7 @@ def build_unit_data(
         "period_id": period_id,
         "form_types": FORM_TYPES,
         "schema_version": SCHEMA_VERSION,
-        "data": encrypt_mock_data(json_data),
+        "data": json_data,
     }
 
     return UnitData.model_validate({**unit_data}, from_attributes=True)
