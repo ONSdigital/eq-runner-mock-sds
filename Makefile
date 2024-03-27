@@ -10,8 +10,6 @@ lint:
 test:
 	poetry run pytest .
 
-build: load-example-data
-
-load-example-data:
+load-mock-unit-data:
 	./scripts/load_mock_data.sh
 

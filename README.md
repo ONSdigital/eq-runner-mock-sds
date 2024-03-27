@@ -24,7 +24,7 @@ the [sds-schema-definitions](https://github.com/ONSdigital/sds-schema-definition
 this, run the following command:
 
 ```bash
-make build
+make load-mock-unit-data
 ```
 
 **IMPORTANT:** The hardcoded `MOCK_DATA_PATHS_BY_SURVEY_ID` in `app/main.py` will need to be updated if **any** of the 
