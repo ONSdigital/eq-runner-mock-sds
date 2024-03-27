@@ -27,8 +27,6 @@ this, run the following command:
 make build
 ```
 
-This will arrange the example data directories into a structure that can be used by this API.
-
 **IMPORTANT:** The hardcoded `MOCK_DATA_PATHS_BY_SURVEY_ID` in `app/main.py` will need to be updated if **any** of the 
 `sds-schema-definitions` example folders change
 
