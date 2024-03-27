@@ -1,5 +1,4 @@
 from datetime import datetime, timezone
-from pathlib import Path
 from uuid import UUID
 
 from fastapi.testclient import TestClient
@@ -9,8 +8,6 @@ from .main import (
     encrypt_mock_data,
     get_mocked_chronological_date,
     get_version_number,
-    get_json_file_count_from_path,
-    MOCK_DATA_ROOT_PATH,
     generate_dataset_id,
 )
 
@@ -89,7 +86,3 @@ def test_get_mocked_chronological_date():
 
 def test_get_version_number():
     assert get_version_number("v1") == 1
-
-
-def test_get_json_file_count_from_path():
-    assert get_json_file_count_from_path(Path(f"{MOCK_DATA_ROOT_PATH}/test/v1")) == 1
