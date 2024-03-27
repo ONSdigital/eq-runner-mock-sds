@@ -10,10 +10,8 @@ lint:
 test:
 	poetry run pytest .
 
-build: load-example-data reorganise-example-data-paths
+build: load-example-data
 
 load-example-data:
 	./scripts/load_mock_data.sh
 
-reorganise-example-data-paths:
-	poetry run python ./scripts/reorganise_mock_data_paths.py
