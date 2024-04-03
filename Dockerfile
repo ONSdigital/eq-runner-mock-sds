@@ -8,13 +8,14 @@ ENV HTTP_KEEP_ALIVE 650
 
 # Install system dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc
+    && apt-get install build-essential curl unzip -y --no-install-recommends gcc \
+    && apt-get clean
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy only the necessary files for poetry installation
-COPY pyproject.toml poetry.lock /app/
+COPY pyproject.toml poetry.lock Makefile scripts/ /app/
 
 # Install Poetry
 RUN pip install poetry==1.5.1
