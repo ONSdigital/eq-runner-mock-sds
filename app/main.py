@@ -33,7 +33,7 @@ TOTAL_REPORTING_UNITS = 1
 FORM_TYPES = ["001"]
 
 # Hardcoded paths for now - update if any changes are made to https://github.com/ONSdigital/sds-schema-definitions/tree/main/examples
-MOCK_DATA_PATHS_BY_SURVEY_ID = {
+SURVEY_ID_BY_MOCK_DATA_PATH = {
     "test": ["123"],
     "prodcom": ["014"],
     "bres_and_brs": [
@@ -48,6 +48,17 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
         "066",  # Sand and & Gravel (Land Won)
         "076",  # Sand & Gravel (Marine Dredged)
     ],
+}
+
+MOCK_DATA_PATHS_BY_SURVEY_ID = {
+    "123": "test",
+    "014": "prodcom",
+    "221": "bres_and_brs",
+    "241": "bres_and_brs",
+    "068": "roofing_tiles_slate",
+    "071": "roofing_tiles_slate",
+    "066": "sand_and_gravel",
+    "076": "sand_and_gravel",
 }
 
 
@@ -88,9 +99,9 @@ class UnitData(BaseModel):
 
 @app.get("/v1/unit_data")
 def get_unit_data(dataset_id: UUID, identifier: str = Query(min_length=1)) -> UnitData:
-    # The mock current does not make use of identifier
+    # The mock currently does not make use of identifier
     """Return an encrypted map of mocked unit data for the given dataset_id"""
-    _, dataset_to_unit_data_map = load_mock_data()
+    dataset_to_unit_data_map = get_units()
 
     if unit_data := dataset_to_unit_data_map.get(dataset_id):
         return unit_data
@@ -103,15 +114,8 @@ def get_dataset_metadata(
     survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
 ) -> list[DatasetMetadata]:
     """Return a list of dataset metadata for the given survey_id"""
-    # The mock currently does not make use of period_id
-    dataset_metadata_collection, _ = load_mock_data()
-
-    if filtered_dataset_metadata_by_survey_id := [
-        dataset_metadata
-        for dataset_metadata in dataset_metadata_collection
-        if dataset_metadata.survey_id == survey_id
-    ]:
-        return filtered_dataset_metadata_by_survey_id
+    if dataset_metadata := get_metadata(survey_id):
+        return dataset_metadata
     raise HTTPException(status_code=404)
 
 
@@ -128,26 +132,26 @@ def get_version_number(dataset_version: str) -> int:
 
 
 def build_dataset_metadata(
-    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+    *, survey_id: str, period_id: str, dataset_id: UUID, file: Path
 ) -> DatasetMetadata:
     dataset_metadata = {
         "survey_id": survey_id,
         "period_id": period_id,
         "form_types": FORM_TYPES,
-        "sds_published_at": get_mocked_chronological_date(path.stem),
+        "sds_published_at": get_mocked_chronological_date(file.stem),
         "total_reporting_units": TOTAL_REPORTING_UNITS,
         "schema_version": SCHEMA_VERSION,
-        "sds_dataset_version": get_version_number(path.stem),
+        "sds_dataset_version": get_version_number(file.stem),
         "filename": "",
         "dataset_id": dataset_id,
-        "title": f"{path.stem} {path.parent.name} supplementary data",
+        "title": f"{file.stem} {file.parent.name} supplementary data",
     }
 
     return DatasetMetadata.model_validate({**dataset_metadata}, from_attributes=True)
 
 
 def build_unit_data(
-    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+    *, survey_id: str, period_id: str, dataset_id: UUID, file: Path
 ) -> UnitData:
     unit_data = {
         "dataset_id": dataset_id,
@@ -155,7 +159,7 @@ def build_unit_data(
         "period_id": period_id,
         "form_types": FORM_TYPES,
         "schema_version": SCHEMA_VERSION,
-        "data": encrypt_mock_data(json.loads(path.read_text())),
+        "data": encrypt_mock_data(json.loads(file.read_text())),
     }
 
     return UnitData.model_validate({**unit_data}, from_attributes=True)
@@ -172,36 +176,53 @@ def generate_dataset_id(
 
 
 @lru_cache(maxsize=1)
-def load_mock_data() -> tuple[list[DatasetMetadata], dict[UUID, UnitData]]:
-    dataset_metadata_collection: list[DatasetMetadata] = []
+def get_units() -> dict[UUID, UnitData]:
     dataset_id_unit_data_map: dict[UUID, UnitData] = {}
 
     for survey_mock_data_path in MOCK_DATA_ROOT_PATH.glob("*"):
-        survey_ids = MOCK_DATA_PATHS_BY_SURVEY_ID.get(survey_mock_data_path.name, [])
+        survey_ids = SURVEY_ID_BY_MOCK_DATA_PATH.get(survey_mock_data_path.name, [])
         for survey_id in survey_ids:
-            for path in survey_mock_data_path.iterdir():
+            for file in survey_mock_data_path.iterdir():
                 dataset_id = generate_dataset_id(
                     survey_id=survey_id,
                     schema_version=SCHEMA_VERSION,
-                    dataset_version=path.stem,
+                    dataset_version=file.stem,
                     period_id=PERIOD_ID,
-                )
-                dataset_metadata_collection.append(
-                    build_dataset_metadata(
-                        survey_id=survey_id,
-                        period_id=PERIOD_ID,
-                        dataset_id=dataset_id,
-                        path=path,
-                    )
                 )
                 dataset_id_unit_data_map[dataset_id] = build_unit_data(
                     survey_id=survey_id,
                     period_id=PERIOD_ID,
                     dataset_id=dataset_id,
-                    path=path,
+                    file=file,
                 )
 
-    return dataset_metadata_collection, dataset_id_unit_data_map
+    return dataset_id_unit_data_map
+
+
+@lru_cache(maxsize=1)
+def get_metadata(survey_id: str) -> list[DatasetMetadata] | None:
+    survey_mock_data_folder_name = MOCK_DATA_PATHS_BY_SURVEY_ID.get(survey_id)
+    if not survey_mock_data_folder_name:
+        return None
+
+    dataset_metadata_collection: list[DatasetMetadata] = []
+
+    for file in Path(MOCK_DATA_ROOT_PATH / survey_mock_data_folder_name).iterdir():
+        dataset_id = generate_dataset_id(
+            survey_id=survey_id,
+            schema_version=SCHEMA_VERSION,
+            dataset_version=file.stem,
+            period_id=PERIOD_ID,
+        )
+        dataset_metadata_collection.append(
+            build_dataset_metadata(
+                survey_id=survey_id,
+                period_id=PERIOD_ID,
+                dataset_id=dataset_id,
+                file=file,
+            )
+        )
+    return dataset_metadata_collection
 
 
 def encrypt_mock_data(mock_data: MutableMapping) -> str:
