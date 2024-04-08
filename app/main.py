@@ -130,7 +130,7 @@ def get_version_number(dataset_version: str) -> int:
 def build_dataset_metadata(
     *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> DatasetMetadata:
-    title = ' '.join(path.parent.name.split("_"))
+    title = " ".join(path.parent.name.split("_"))
     dataset_metadata = {
         "survey_id": survey_id,
         "period_id": period_id,
