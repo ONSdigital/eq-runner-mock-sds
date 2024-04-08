@@ -18,7 +18,7 @@ def test_get_sds_unit_data_found():
     response = client.get(
         "/v1/unit_data",
         params={
-            "dataset_id": "abb98e61-7631-60fa-3058-e1f59006db31",
+            "dataset_id": "d8afa921-1305-d553-d2c6-955a6db2cc2d",
             "identifier": "12345678901",
         },
     )
@@ -68,14 +68,13 @@ def test_encrypt_mock_data():
 
 
 def test_generate_dataset_id():
-    expected_dataset_id = UUID("abb98e61-7631-60fa-3058-e1f59006db31")
+    expected_dataset_id = UUID("d8afa921-1305-d553-d2c6-955a6db2cc2d")
     actual_dataset_id = generate_dataset_id(
         survey_id="123",
         schema_version="v1.0.0",
         dataset_version="v1",
-        period_id="201605",
     )
-    assert expected_dataset_id == actual_dataset_id
+    assert actual_dataset_id == expected_dataset_id
 
 
 def test_get_mocked_chronological_date():

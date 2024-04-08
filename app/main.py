@@ -130,6 +130,7 @@ def get_version_number(dataset_version: str) -> int:
 def build_dataset_metadata(
     *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> DatasetMetadata:
+    title = ' '.join(path.parent.name.split("_"))
     dataset_metadata = {
         "survey_id": survey_id,
         "period_id": period_id,
@@ -140,7 +141,7 @@ def build_dataset_metadata(
         "sds_dataset_version": get_version_number(path.stem),
         "filename": "",
         "dataset_id": dataset_id,
-        "title": f"{path.stem} {path.parent.name} supplementary data",
+        "title": f"{title} supplementary data",
     }
 
     return DatasetMetadata.model_validate({**dataset_metadata}, from_attributes=True)
@@ -162,11 +163,11 @@ def build_unit_data(
 
 
 def generate_dataset_id(
-    *, survey_id: str, schema_version: str, dataset_version: str, period_id: str
+    *, survey_id: str, schema_version: str, dataset_version: str
 ) -> UUID:
     """deterministically a generate dataset_id"""
     combined_hash = hashlib.sha256(
-        f"{survey_id}_{schema_version}_{dataset_version}_{period_id}".encode("utf-8")
+        f"{survey_id}_{schema_version}_{dataset_version}".encode("utf-8")
     ).hexdigest()
     return UUID(combined_hash[:32])
 
@@ -184,7 +185,6 @@ def load_mock_data() -> tuple[list[DatasetMetadata], dict[UUID, UnitData]]:
                     survey_id=survey_id,
                     schema_version=SCHEMA_VERSION,
                     dataset_version=path.stem,
-                    period_id=PERIOD_ID,
                 )
                 dataset_metadata_collection.append(
                     build_dataset_metadata(
