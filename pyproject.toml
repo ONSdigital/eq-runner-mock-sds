@@ -2,7 +2,7 @@
 name = "eq-runner-mock-sds"
 version = "0.1.0"
 description = "ONS Digital eQ Runner Mock SDS"
-authors = ["http://onsdigital.github.io"]
+authors = ["ONSDigital"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
