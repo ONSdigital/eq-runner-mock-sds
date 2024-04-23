@@ -3,9 +3,8 @@
 set -e
 
 REPO_NAME="sds-schema-definitions"
-SDS_SCHEMA_DEFINITIONS_REPO="onsdigital/${REPO_NAME}"
 
-DOWNLOAD_URL="https://github.com/${SDS_SCHEMA_DEFINITIONS_REPO}/archive/refs/heads/main.zip"
+DOWNLOAD_URL="https://github.com/onsdigital/${REPO_NAME}/archive/refs/heads/main.zip"
 DOWNLOAD_NAME="${REPO_NAME}-main"
 
 echo "Fetching ${DOWNLOAD_URL}"
