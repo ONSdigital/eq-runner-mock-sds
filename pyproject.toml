@@ -10,7 +10,7 @@ python = "^3.11"
 fastapi = "^0.109.1"
 sdc-cryptography = "^1.1.2"
 uvicorn = "^0.23.0"
-gunicorn = "^20.1.0"
+gunicorn = "^22.0.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.3.0"
