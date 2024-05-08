@@ -10,3 +10,6 @@ lint:
 test:
 	poetry run pytest .
 
+load-mock-unit-data:
+	./scripts/load_mock_unit_data.sh
+
