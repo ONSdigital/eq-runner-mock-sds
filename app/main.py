@@ -44,6 +44,14 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     ],
 }
 
+SCHEMA_VERSIONS_BY_SURVEY_ID = {
+    "test": ["v1.0.0"],
+    "bres": ["v1.0.0", "v2.0.0"],
+    "prodcom": ["v1.0.0", "v2.0.0"],
+    "roofing_tiles_slate": ["v1.0.0", "v2.0.0"],
+    "sand_and_gravel": ["v1.0.0", "v2.0.0"],
+}
+
 
 class DatasetMetadata(BaseModel):
     """
@@ -94,7 +102,7 @@ def get_unit_data(dataset_id: UUID, identifier: str = Query(min_length=1)) -> Un
 
 @app.get("/v1/dataset_metadata")
 def get_dataset_metadata(
-    survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
+        survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
 ) -> list[DatasetMetadata]:
     """Return a list of dataset metadata for the given survey_id"""
     # The mock currently does not make use of period_id
@@ -121,8 +129,16 @@ def get_version_number(dataset_version: str) -> int:
     return int(dataset_version[1:])
 
 
+# Uses the dataset_version (i.e. path.stem) to get the version number
+
+''' 
+    Given the schema version doesn't reflect the dataset version, this method may not work as intended because schema_version 
+    v2 may not necessarily use v2 of the sds_dataset_version. 
+'''
+
+
 def build_dataset_metadata(
-    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+        *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> DatasetMetadata:
     title = " ".join(path.parent.name.split("_"))
     dataset_metadata = {
@@ -131,7 +147,7 @@ def build_dataset_metadata(
         "form_types": FORM_TYPES,
         "sds_published_at": get_mocked_chronological_date(path.stem),
         "total_reporting_units": TOTAL_REPORTING_UNITS,
-        "schema_version": "v1.0.0" if path.name == "v1.json" else "v2.0.0",
+        "schema_version": get_schema_version(path.parent.name, path.name),
         "sds_dataset_version": get_version_number(path.stem),
         "filename": "",
         "dataset_id": dataset_id,
@@ -142,14 +158,14 @@ def build_dataset_metadata(
 
 
 def build_unit_data(
-    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+        *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> UnitData:
     unit_data = {
         "dataset_id": dataset_id,
         "survey_id": survey_id,
         "period_id": period_id,
         "form_types": FORM_TYPES,
-        "schema_version": "v1.0.0" if path.name == "v1.json" else "v2.0.0",
+        "schema_version": get_schema_version(path.parent.name, path.name),
         "data": encrypt_mock_data(json.loads(path.read_text())),
     }
 
@@ -157,7 +173,7 @@ def build_unit_data(
 
 
 def generate_dataset_id(
-    *, survey_id: str, schema_version: str, dataset_version: str
+        *, survey_id: str, schema_version: str, dataset_version: str
 ) -> UUID:
     """deterministically a generate dataset_id"""
     combined_hash = hashlib.sha256(
@@ -177,7 +193,7 @@ def load_mock_data() -> tuple[list[DatasetMetadata], dict[UUID, UnitData]]:
             for path in survey_mock_data_path.iterdir():
                 dataset_id = generate_dataset_id(
                     survey_id=survey_id,
-                    schema_version="v1.0.0" if path.name == "v1.json" else "v2.0.0",
+                    schema_version=get_schema_version(path.parent.name, path.name),
                     dataset_version=path.stem,
                 )
                 dataset_metadata_collection.append(
@@ -202,6 +218,13 @@ def encrypt_mock_data(mock_data: MutableMapping) -> str:
     key = keys.get_key(purpose=KEY_PURPOSE_SDS, key_type="private")
     mock_data = JWEHelper.encrypt_with_key(json.dumps(mock_data), key.kid, key.as_jwk())
     return mock_data
+
+
+def get_schema_version(path_parent, filename):
+    filepath = "/".join(["mock_data", path_parent, filename])
+    with open(filepath) as f:
+        data = json.load(f)
+    return data["schema_version"] + ".0.0"
 
 
 if __name__ == "__main__":
