@@ -102,7 +102,7 @@ def get_unit_data(dataset_id: UUID, identifier: str = Query(min_length=1)) -> Un
 
 @app.get("/v1/dataset_metadata")
 def get_dataset_metadata(
-        survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
+    survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
 ) -> list[DatasetMetadata]:
     """Return a list of dataset metadata for the given survey_id"""
     # The mock currently does not make use of period_id
@@ -131,14 +131,14 @@ def get_version_number(dataset_version: str) -> int:
 
 # Uses the dataset_version (i.e. path.stem) to get the version number
 
-''' 
+""" 
     Given the schema version doesn't reflect the dataset version, this method may not work as intended because schema_version 
     v2 may not necessarily use v2 of the sds_dataset_version. 
-'''
+"""
 
 
 def build_dataset_metadata(
-        *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> DatasetMetadata:
     title = " ".join(path.parent.name.split("_"))
     dataset_metadata = {
@@ -158,7 +158,7 @@ def build_dataset_metadata(
 
 
 def build_unit_data(
-        *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
+    *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> UnitData:
     unit_data = {
         "dataset_id": dataset_id,
@@ -173,7 +173,7 @@ def build_unit_data(
 
 
 def generate_dataset_id(
-        *, survey_id: str, schema_version: str, dataset_version: str
+    *, survey_id: str, schema_version: str, dataset_version: str
 ) -> UUID:
     """deterministically a generate dataset_id"""
     combined_hash = hashlib.sha256(
