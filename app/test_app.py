@@ -10,7 +10,7 @@ from .main import (
     get_mocked_chronological_date,
     get_version_number,
     generate_dataset_id,
-    get_schema_version
+    get_schema_version,
 )
 
 client = TestClient(app)
@@ -72,9 +72,9 @@ def test_encrypt_mock_data():
 @pytest.mark.parametrize(
     "dataset_id, survey_id, schema_version, dataset_version",
     (
-            ("d8afa921-1305-d553-d2c6-955a6db2cc2d", "123", "v1.0.0", "v1"),
-            ("f3628c40-380e-38f0-de4f-ee7f481fbede", "123", "v2.0.0", "v2"),
-    )
+        ("d8afa921-1305-d553-d2c6-955a6db2cc2d", "123", "v1.0.0", "v1"),
+        ("f3628c40-380e-38f0-de4f-ee7f481fbede", "123", "v2.0.0", "v2"),
+    ),
 )
 def test_generate_dataset_id(dataset_id, survey_id, schema_version, dataset_version):
     expected_dataset_id = UUID(dataset_id)
@@ -86,24 +86,15 @@ def test_generate_dataset_id(dataset_id, survey_id, schema_version, dataset_vers
     assert actual_dataset_id == expected_dataset_id
 
 
-@pytest.mark.parametrize(
-    "schema_version",
-    ("v1", "v2")
-)
+@pytest.mark.parametrize("schema_version", ("v1", "v2"))
 def test_get_mocked_chronological_date(schema_version):
-    assert datetime.fromisoformat(get_mocked_chronological_date(schema_version)) > datetime.now(
-        tz=timezone.utc
-    )
+    assert datetime.fromisoformat(
+        get_mocked_chronological_date(schema_version)
+    ) > datetime.now(tz=timezone.utc)
 
 
 @pytest.mark.parametrize(
-    "dataset_version, version_number",
-    (
-        ("v1", 1),
-        ("v2", 2),
-        ("v3", 3),
-        ("v4", 4)
-    )
+    "dataset_version, version_number", (("v1", 1), ("v2", 2), ("v3", 3), ("v4", 4))
 )
 def test_get_version_number(dataset_version, version_number):
     assert get_version_number(dataset_version) == version_number
@@ -112,10 +103,10 @@ def test_get_version_number(dataset_version, version_number):
 @pytest.mark.parametrize(
     "filepath, filename, result",
     (
-            ("test", "v1.json", "v1.0.0"),
-            ("test", "v2.json", "v2.0.0"),
-            ("test", "v3.json", "v1.0.0")
-    )
+        ("test", "v1.json", "v1.0.0"),
+        ("test", "v2.json", "v2.0.0"),
+        ("test", "v3.json", "v1.0.0"),
+    ),
 )
 def test_get_schema_version(filepath, filename, result):
     assert get_schema_version(filepath, filename) == result
