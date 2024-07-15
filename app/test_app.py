@@ -105,7 +105,7 @@ def test_get_version_number(dataset_version, version_number):
     (
         ("test", "v1.json", "v1.0.0"),
         ("test", "v2.json", "v2.0.0"),
-        ("test", "v3.json", "v1.0.0"),
+        ("test", "v3.json", "v2.0.0"),
     ),
 )
 def test_get_schema_version(filepath, filename, result):
