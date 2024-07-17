@@ -20,7 +20,7 @@ def test_get_sds_unit_data_found():
     response = client.get(
         "/v1/unit_data",
         params={
-            "dataset_id": "1393cfac-6d54-dca5-cdf8-61b536c6c16b",
+            "dataset_id": "203b2f9d-c500-8175-98db-86ffcfdccfa3",
             "identifier": "12345678901",
         },
     )
