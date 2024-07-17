@@ -216,7 +216,7 @@ def get_schema_version(schema_folder, filename):
     filepath = "/".join(["mock_data", schema_folder, filename])
     with open(filepath) as f:
         data = json.load(f)
-    return f'{data["schema_version"]}.0.0'
+    return f'{data["schema_version"]}'
 
 
 if __name__ == "__main__":
