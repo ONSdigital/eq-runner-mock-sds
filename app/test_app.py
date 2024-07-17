@@ -20,7 +20,7 @@ def test_get_sds_unit_data_found():
     response = client.get(
         "/v1/unit_data",
         params={
-            "dataset_id": "d8afa921-1305-d553-d2c6-955a6db2cc2d",
+            "dataset_id": "1393cfac-6d54-dca5-cdf8-61b536c6c16b",
             "identifier": "12345678901",
         },
     )
@@ -72,8 +72,8 @@ def test_encrypt_mock_data():
 @pytest.mark.parametrize(
     "dataset_id, survey_id, schema_version, dataset_version",
     (
-        ("d8afa921-1305-d553-d2c6-955a6db2cc2d", "123", "v1.0.0", "v1"),
-        ("f3628c40-380e-38f0-de4f-ee7f481fbede", "123", "v2.0.0", "v2"),
+        ("203b2f9d-c500-8175-98db-86ffcfdccfa3", "123", "v1", "v1"),
+        ("3bb41d29-4daa-9520-82f0-cae365f390c6", "123", "v2", "v2"),
     ),
 )
 def test_generate_dataset_id(dataset_id, survey_id, schema_version, dataset_version):
@@ -103,9 +103,9 @@ def test_get_version_number(dataset_version, version_number):
 @pytest.mark.parametrize(
     "filepath, filename, result",
     (
-        ("test", "v1.json", "v1.0.0"),
-        ("test", "v2.json", "v2.0.0"),
-        ("test", "v3.json", "v2.0.0"),
+        ("test", "v1.json", "v1"),
+        ("test", "v2.json", "v2"),
+        ("test", "v3.json", "v2"),
     ),
 )
 def test_get_schema_version(filepath, filename, result):
