@@ -121,14 +121,6 @@ def get_version_number(dataset_version: str) -> int:
     return int(dataset_version[1:])
 
 
-# Uses the dataset_version (i.e. path.stem) to get the version number
-
-""" 
-    Given the schema version doesn't reflect the dataset version, this method may not work as intended because schema_version 
-    v2 may not necessarily use v2 of the sds_dataset_version. 
-"""
-
-
 def build_dataset_metadata(
     *, survey_id: str, period_id: str, dataset_id: UUID, path: Path
 ) -> DatasetMetadata:
