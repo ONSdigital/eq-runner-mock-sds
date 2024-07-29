@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 from uuid import UUID
 
+import pytest
 from fastapi.testclient import TestClient
 
 from .main import (
@@ -9,6 +10,7 @@ from .main import (
     get_mocked_chronological_date,
     get_version_number,
     generate_dataset_id,
+    get_schema_version,
 )
 
 client = TestClient(app)
@@ -18,7 +20,7 @@ def test_get_sds_unit_data_found():
     response = client.get(
         "/v1/unit_data",
         params={
-            "dataset_id": "d8afa921-1305-d553-d2c6-955a6db2cc2d",
+            "dataset_id": "203b2f9d-c500-8175-98db-86ffcfdccfa3",
             "identifier": "12345678901",
         },
     )
@@ -67,21 +69,44 @@ def test_encrypt_mock_data():
     assert isinstance(encrypted_data, str)
 
 
-def test_generate_dataset_id():
-    expected_dataset_id = UUID("d8afa921-1305-d553-d2c6-955a6db2cc2d")
+@pytest.mark.parametrize(
+    "dataset_id, survey_id, schema_version, dataset_version",
+    (
+        ("203b2f9d-c500-8175-98db-86ffcfdccfa3", "123", "v1", "v1"),
+        ("3bb41d29-4daa-9520-82f0-cae365f390c6", "123", "v2", "v2"),
+    ),
+)
+def test_generate_dataset_id(dataset_id, survey_id, schema_version, dataset_version):
+    expected_dataset_id = UUID(dataset_id)
     actual_dataset_id = generate_dataset_id(
-        survey_id="123",
-        schema_version="v1.0.0",
-        dataset_version="v1",
+        survey_id=survey_id,
+        schema_version=schema_version,
+        dataset_version=dataset_version,
     )
     assert actual_dataset_id == expected_dataset_id
 
 
-def test_get_mocked_chronological_date():
-    assert datetime.fromisoformat(get_mocked_chronological_date("v1")) > datetime.now(
-        tz=timezone.utc
-    )
+@pytest.mark.parametrize("schema_version", ("v1", "v2"))
+def test_get_mocked_chronological_date(schema_version):
+    assert datetime.fromisoformat(
+        get_mocked_chronological_date(schema_version)
+    ) > datetime.now(tz=timezone.utc)
 
 
-def test_get_version_number():
-    assert get_version_number("v1") == 1
+@pytest.mark.parametrize(
+    "dataset_version, version_number", (("v1", 1), ("v2", 2), ("v3", 3), ("v4", 4))
+)
+def test_get_version_number(dataset_version, version_number):
+    assert get_version_number(dataset_version) == version_number
+
+
+@pytest.mark.parametrize(
+    "filepath, filename, result",
+    (
+        ("test", "v1.json", "v1"),
+        ("test", "v2.json", "v2"),
+        ("test", "v3.json", "v2"),
+    ),
+)
+def test_get_schema_version(filepath, filename, result):
+    assert get_schema_version(filepath, filename) == result

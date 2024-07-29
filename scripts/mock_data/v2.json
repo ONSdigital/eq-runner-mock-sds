@@ -1,0 +1,19 @@
+{
+  "schema_version": "v2",
+  "survey_id": "066",
+  "identifier": "12345678901",
+  "items": {
+    "local-units": [
+      {
+        "identifier": "6122875",
+        "name": "SAND REFERRAL INDUSTRIES UK LTD",
+        "address": [
+          "SAND & GRAVEL PARK INDUSTRIAL ESTATE",
+          "CHELTENHAM",
+          "GLOUCESTERSHIRE",
+          "GL11 1AA"
+        ]
+      }
+    ]
+  }
+}

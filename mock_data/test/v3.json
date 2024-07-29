@@ -1,5 +1,5 @@
 {
-  "schema_version": "v1",
+  "schema_version": "v2",
   "identifier": "12345678901",
   "company_name": "Lidl",
   "company_details": {

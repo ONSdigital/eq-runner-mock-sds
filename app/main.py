@@ -24,9 +24,6 @@ MOCK_DATA_ROOT_PATH = Path(__file__).parent.parent / "mock_data"
 # period_id to match with Launcher
 PERIOD_ID = "201605"
 
-# Currently only have a single schema version
-SCHEMA_VERSION = "v1.0.0"
-
 # Currently only have 1 reporting unit example for each schema version
 TOTAL_REPORTING_UNITS = 1
 
@@ -36,10 +33,7 @@ FORM_TYPES = ["001"]
 MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "test": ["123"],
     "prodcom": ["014"],
-    "bres_and_brs": [
-        "221",  # BRES
-        "241",  # BRS
-    ],
+    "bres": ["221"],
     "roofing_tiles_slate": [
         "068",  # Roofing tiles
         "071",  # Slate
@@ -137,7 +131,7 @@ def build_dataset_metadata(
         "form_types": FORM_TYPES,
         "sds_published_at": get_mocked_chronological_date(path.stem),
         "total_reporting_units": TOTAL_REPORTING_UNITS,
-        "schema_version": SCHEMA_VERSION,
+        "schema_version": get_schema_version(path.parent.name, path.name),
         "sds_dataset_version": get_version_number(path.stem),
         "filename": "",
         "dataset_id": dataset_id,
@@ -155,7 +149,7 @@ def build_unit_data(
         "survey_id": survey_id,
         "period_id": period_id,
         "form_types": FORM_TYPES,
-        "schema_version": SCHEMA_VERSION,
+        "schema_version": get_schema_version(path.parent.name, path.name),
         "data": encrypt_mock_data(json.loads(path.read_text())),
     }
 
@@ -183,7 +177,7 @@ def load_mock_data() -> tuple[list[DatasetMetadata], dict[UUID, UnitData]]:
             for path in survey_mock_data_path.iterdir():
                 dataset_id = generate_dataset_id(
                     survey_id=survey_id,
-                    schema_version=SCHEMA_VERSION,
+                    schema_version=get_schema_version(path.parent.name, path.name),
                     dataset_version=path.stem,
                 )
                 dataset_metadata_collection.append(
@@ -208,6 +202,13 @@ def encrypt_mock_data(mock_data: MutableMapping) -> str:
     key = keys.get_key(purpose=KEY_PURPOSE_SDS, key_type="private")
     mock_data = JWEHelper.encrypt_with_key(json.dumps(mock_data), key.kid, key.as_jwk())
     return mock_data
+
+
+def get_schema_version(schema_folder, filename):
+    filepath = "/".join(["mock_data", schema_folder, filename])
+    with open(filepath) as f:
+        data = json.load(f)
+    return f'{data["schema_version"]}'
 
 
 if __name__ == "__main__":
