@@ -34,6 +34,7 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "test": ["123"],
     "prodcom": ["014"],
     "bres": ["221"],
+    "brs": ["241"],
     "roofing_tiles_slate": [
         "068",  # Roofing tiles
         "071",  # Slate
