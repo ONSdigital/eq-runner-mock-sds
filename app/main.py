@@ -35,14 +35,10 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "prodcom": ["014"],
     "bres": ["221"],
     "brs": ["241"],
-    "roofing_tiles_slate": [
-        "068",  # Roofing tiles
-        "071",  # Slate
-    ],
-    "sand_and_gravel": [
-        "066",  # Sand and & Gravel (Land Won)
-        "076",  # Sand & Gravel (Marine Dredged)
-    ],
+    "slate": ["071"],
+    "roofing_tiles": ["068"],
+    "sand_and_gravel_land_won": ["066"],
+    "sand_and_gravel_marine_dredged": ["076",],
 }
 
 
