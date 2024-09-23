@@ -38,9 +38,7 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "slate": ["071"],
     "roofing_tiles": ["068"],
     "sand_and_gravel_land_won": ["066"],
-    "sand_and_gravel_marine_dredged": [
-        "076",
-    ],
+    "sand_and_gravel_marine_dredged": ["076"],
 }
 
 
