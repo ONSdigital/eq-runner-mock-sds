@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permmisoins:
+  contents: read
+  pull-requests: read
+
 jobs:
   docker-push:
       runs-on: ubuntu-22.04
