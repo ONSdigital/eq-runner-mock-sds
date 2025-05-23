@@ -40,6 +40,7 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "sand_and_gravel_land_won": ["066"],
     "sand_and_gravel_marine_dredged": ["076"],
     "ppi": ["132"],
+    "sppi": ["061"],
 }
 
 
