@@ -4,8 +4,8 @@ set -e
 
 REPO_NAME="sds-schema-definitions"
 
-DOWNLOAD_URL="https://github.com/onsdigital/${REPO_NAME}/archive/refs/heads/update-sppi-identifier).zip"
-DOWNLOAD_NAME="${REPO_NAME}-update-sppi-identifier)"
+DOWNLOAD_URL="https://github.com/onsdigital/${REPO_NAME}/archive/refs/heads/main.zip"
+DOWNLOAD_NAME="${REPO_NAME}-main"
 
 echo "Fetching ${DOWNLOAD_URL}"
 
