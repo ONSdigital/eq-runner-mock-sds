@@ -4,8 +4,8 @@ set -e
 
 REPO_NAME="sds-schema-definitions"
 
-DOWNLOAD_URL="https://github.com/onsdigital/${REPO_NAME}/archive/refs/heads/main.zip"
-DOWNLOAD_NAME="${REPO_NAME}-main"
+DOWNLOAD_URL="https://github.com/onsdigital/${REPO_NAME}/archive/refs/heads/add-epi-schema-definition.zip"
+DOWNLOAD_NAME="${REPO_NAME}-add-epi-schema-definition"
 
 echo "Fetching ${DOWNLOAD_URL}"
 
