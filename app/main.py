@@ -43,6 +43,7 @@ MOCK_DATA_PATHS_BY_SURVEY_ID = {
     "sppi": ["061"],
     "epi": ["133"],
     "ipi": ["156"],
+    "ashe": ["141"],
 }
 
 
