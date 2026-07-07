@@ -83,7 +83,9 @@ class UnitData(BaseModel):
 
 
 @app.get("/datasets/{dataset_id}/unit-data/{identifier}")
-def get_unit_data(dataset_id: UUID, identifier: str = FastAPIPath(min_length=1)) -> UnitData:
+def get_unit_data(
+    dataset_id: UUID, identifier: str = FastAPIPath(min_length=1)
+) -> UnitData:
     # The mock current does not make use of identifier
     """Return an encrypted map of mocked unit data for the given dataset_id"""
     _, dataset_to_unit_data_map = load_mock_data()
