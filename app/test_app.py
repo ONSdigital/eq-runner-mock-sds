@@ -17,36 +17,40 @@ client = TestClient(app)
 
 
 def test_get_sds_unit_data_found():
+    dataset_id = "203b2f9d-c500-8175-98db-86ffcfdccfa3"
+    identifier = "12345678901"
+
     response = client.get(
-        "/v1/unit_data",
-        params={
-            "dataset_id": "203b2f9d-c500-8175-98db-86ffcfdccfa3",
-            "identifier": "12345678901",
-        },
+        f"/datasets/{dataset_id}/unit-data/{identifier}",
     )
+
     assert response.status_code == 200
     assert "data" in response.json()
 
 
 def test_get_sds_unit_data_not_found():
+    dataset_id = "00000000-0000-0000-0000-000000000000"
+    identifier = "12345678901"
+
     response = client.get(
-        "/v1/unit_data",
-        params={
-            "dataset_id": "00000000-0000-0000-0000-000000000000",
-            "identifier": "12345678901",
-        },
+        f"/datasets/{dataset_id}/unit-data/{identifier}",
     )
+
     assert response.status_code == 404
 
 
 def test_get_sds_unit_data_invalid_uuid():
-    response = client.get("/v1/unit_data", params={"dataset_id": "invalid_uuid"})
+    dataset_id = "invalid_uuid"
+    identifier = "12345678901"
+
+    response = client.get(f"/datasets/{dataset_id}/unit-data/{identifier}")
+
     assert response.status_code == 422
 
 
 def test_get_sds_dataset_metadata_ids_found():
     response = client.get(
-        "/v1/dataset_metadata", params={"survey_id": "123", "period_id": "202301"}
+        "/datasets/metadata", params={"survey_id": "123", "period_id": "202301"}
     )
     assert response.status_code == 200
     assert isinstance(response.json(), list)
@@ -54,7 +58,7 @@ def test_get_sds_dataset_metadata_ids_found():
 
 def test_get_sds_dataset_metadata_ids_not_found():
     response = client.get(
-        "/v1/dataset_metadata",
+        "/datasets/metadata",
         params={
             "survey_id": "non_existent_survey_id",
             "period_id": "non_existent_period_id",

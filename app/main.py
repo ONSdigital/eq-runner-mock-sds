@@ -8,7 +8,7 @@ from uuid import UUID
 
 import uvicorn
 import yaml
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, Path as FastAPIPath
 from pydantic import BaseModel
 from sdc.crypto.jwe_helper import JWEHelper
 from sdc.crypto.key_store import KeyStore
@@ -82,8 +82,10 @@ class UnitData(BaseModel):
     data: str
 
 
-@app.get("/v1/unit_data")
-def get_unit_data(dataset_id: UUID, identifier: str = Query(min_length=1)) -> UnitData:
+@app.get("/datasets/{dataset_id}/unit-data/{identifier}")
+def get_unit_data(
+    dataset_id: UUID, identifier: str = FastAPIPath(min_length=1)
+) -> UnitData:
     # The mock current does not make use of identifier
     """Return an encrypted map of mocked unit data for the given dataset_id"""
     _, dataset_to_unit_data_map = load_mock_data()
@@ -94,7 +96,7 @@ def get_unit_data(dataset_id: UUID, identifier: str = Query(min_length=1)) -> Un
     raise HTTPException(status_code=404)
 
 
-@app.get("/v1/dataset_metadata")
+@app.get("/datasets/metadata")
 def get_dataset_metadata(
     survey_id: str = Query(min_length=1), period_id: str = Query(min_length=1)
 ) -> list[DatasetMetadata]:
