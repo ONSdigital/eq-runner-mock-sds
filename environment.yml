@@ -1,0 +1,8 @@
+name: eq-runner-mock-sds
+channels:
+    - conda-forge
+dependencies:
+    - python=3.13.5
+    - poetry=2.1.2
+variables:
+    POETRY_VIRTUALENVS_CREATE: "false"
