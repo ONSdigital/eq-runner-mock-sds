@@ -1,0 +1,43 @@
+{
+  "schema_version": "v1",
+  "survey_id": "133",
+  "identifier": "12345678901",
+  "supplier_number": "49422807969",
+  "current_month": "April 2025",
+  "items": {
+    "item": [
+      {
+        "identifier": "2211200018",
+        "item_number": "2211200018",
+        "item_specification_1": "PRODUCT: HEAT EXCHANGER AIR-AIR",
+        "item_specification_2": "DESCRIPTION: REFRIGERATION AND FREEZING",
+        "item_specification_3": "EQUIPMENT AND HEAT PUMPS, EXCEPT",
+        "item_specification_4": "EQUIPMENT AND HEAT PUMPS, EXCEPT",
+        "item_specification_5": "EQUIPMENT AND HEAT PUMPS, EXCEPT",
+        "unit_of_sale": "EACH",
+        "terms_of_sale_1": "SUPPLIER REF: 123073",
+        "terms_of_sale_2": "PAYMENT: 60 DAYS NET",
+        "terms_of_sale_3": "CARRIAGE: FCA",
+        "terms_of_sale_4": "CARRIAGE: FCA",
+        "currency": "POUNDS STERLING",
+        "country_of_origin": "FRANCE"
+      },
+      {
+        "identifier": "9876543210",
+        "item_number": "9876543210",
+        "item_specification_1": "PRODUCT: HEAT EXCHANGER WATER-WATER",
+        "item_specification_2": "DESCRIPTION: WATER COOLING",
+        "item_specification_3": "EQUIPMENT AND WATER PUMPS, EXCEPT",
+        "item_specification_4": "EQUIPMENT AND WATER PUMPS, EXCEPT",
+        "item_specification_5": "EQUIPMENT AND WATER PUMPS, EXCEPT",
+        "unit_of_sale": "EACH",
+        "terms_of_sale_1": "SUPPLIER REF: 456789",
+        "terms_of_sale_2": "PAYMENT: 90 DAYS NET",
+        "terms_of_sale_3": "CARRIAGE: ABC",
+        "terms_of_sale_4": "CARRIAGE: DEF",
+        "currency": "EURO",
+        "country_of_origin": "SPAIN"
+      }
+    ]
+  }
+}
