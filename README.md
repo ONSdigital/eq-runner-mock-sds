@@ -41,17 +41,10 @@ cache, run **Repair ownership of user conda directory** in Self Service, then re
 
 ## Running Locally
 
-### Prerequisites
-To launch business surveys that make use of supplementary data, you'll first need to pull down example unit data from 
-the [sds-schema-definitions](https://github.com/ONSdigital/sds-schema-definitions/tree/main/examples) examples. To do 
-this, run the following command:
+### Mock unit data
+Example unit data from the [sds-schema-definitions](https://github.com/ONSdigital/sds-schema-definitions/tree/main/examples) examples is committed in `mock_data/`.
 
-```bash
-make load-mock-unit-data
-```
-
-**IMPORTANT:** The hardcoded `MOCK_DATA_PATHS_BY_SURVEY_ID` in `app/main.py` will need to be updated if **any** of the 
-`sds-schema-definitions` example folders change
+**IMPORTANT:** The hardcoded `MOCK_DATA_PATHS_BY_SURVEY_ID` in `app/main.py` will need to be updated if any folders in `mock_data/` are added, removed or renamed.
 
 ## Running 
 To run the FastAPI application locally using `uvicorn`, use the following command:
