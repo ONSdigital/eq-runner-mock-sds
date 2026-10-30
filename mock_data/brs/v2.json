@@ -1,0 +1,22 @@
+{
+  "schema_version": "v2",
+  "survey_id": "241",
+  "identifier": "12345678901",
+  "vat": {
+    "registration_number": "123456789",
+    "subsidiary_identifier": "123"
+  },
+  "employer_paye": {
+    "tax_office_number": "123",
+    "reference": "AB456"
+  },
+  "address": [
+    "SOUTH CERNEY WORKS",
+    "SHAWELL LANE",
+    "BEENHAM",
+    "STAFFS",
+    "BEDFORDSHIRE",
+    "GL4 5YU"
+  ],
+  "business_description": "PROVIDER OF CONSTRUCTION MATERIALS AND SUPPLIES"
+}

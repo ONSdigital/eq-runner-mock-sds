@@ -1,0 +1,45 @@
+{
+  "schema_version": "v1",
+  "survey_id": "061",
+  "identifier": "12345678901",
+  "supplier_number": "34942807969",
+  "source_quarter": "Quarter 1/2024 (January)",
+  "items": {
+    "service": [
+      {
+        "identifier": "8122013058",
+        "item_number": "8122013058",
+        "service_description_1": "COMMERCIAL WASTE - LANDFILL - COLLECTION",
+        "service_description_2": "AND DISPOSAL - FROM FACTORIES & WORK",
+        "service_description_3": "(FROM CONTAINER BERTH TO INLAND)",
+        "service_description_4": "CUSTOMER: BRIN YT",
+        "service_description_5": "PRICE PER TONNE",
+        "unit_of_sale": "PRICE PER MILE",
+        "terms_of_sale_1": "CUSTOMER REF: UK CUSTOMER",
+        "terms_of_sale_2": "PAYMENT: 25% DEPOSIT UP FRONT & FINAL",
+        "terms_of_sale_3": "PAYMENT 28 DAYS PRIOR OR 21 DAYS IF",
+        "terms_of_sale_4": "CREDIT ACCOUNT",
+        "currency": "Pounds Sterling",
+        "currency_wording": "price",
+        "currency_wording_capital": "Price"
+      },
+      {
+        "identifier": "0987654321",
+        "item_number": "0987654321",
+        "service_description_1": "INDUSTRIAL CLEANING - FACTORY FLOORS",
+        "service_description_2": "AND EQUIPMENT - HIGH PRESSURE WASH",
+        "service_description_3": "(INCLUDING CHEMICAL TREATMENT)",
+        "service_description_4": "CUSTOMER: ACME CORP",
+        "service_description_5": "PRICE PER HOUR",
+        "unit_of_sale": "PRICE PER HOUR",
+        "terms_of_sale_1": "CUSTOMER REF: ACME123",
+        "terms_of_sale_2": "PAYMENT: 50% UPFRONT, BALANCE",
+        "terms_of_sale_3": "PAYMENT 14 DAYS AFTER COMPLETION",
+        "terms_of_sale_4": "NO CREDIT ACCOUNT",
+        "currency": "Pounds Sterling",
+        "currency_wording": "price",
+        "currency_wording_capital": "Price"
+      }
+    ]
+  }
+}

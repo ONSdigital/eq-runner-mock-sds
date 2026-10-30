@@ -1,0 +1,33 @@
+{
+  "schema_version": "v2",
+  "survey_id": "068",
+  "identifier": "12345678901",
+  "items": {
+    "local-units": [
+      {
+        "identifier": "3340224",
+        "name": "STUBBS BUILDING PRODUCTS LTD",
+        "address": [
+          "WELLINGTON ROAD",
+          "LOCHMABEN",
+          "SWINDON",
+          "BEDS",
+          "GLOS",
+          "DE41 2WA"
+        ]
+      },
+      {
+        "identifier": "20047673",
+        "name": "HOPSCOTCH INDUSTRIES UK LTD",
+        "address": [
+          "SOUTH CERNEY WORKS",
+          "SHAWELL LANE",
+          "BEENHAM",
+          "STAFFS",
+          "BEDFORDSHIRE",
+          "GL4 5YU"
+        ]
+      }
+    ]
+  }
+}

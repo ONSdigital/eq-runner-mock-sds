@@ -1,0 +1,43 @@
+{
+  "schema_version": "v2",
+  "survey_id": "132",
+  "identifier": "12345678901",
+  "supplier_number": "23456789012",
+  "current_month": "July 2023",
+  "items": {
+    "item": [
+      {
+        "identifier": "12345678901",
+        "supplier_number": "12345678901",
+        "item_number": "1234567890",
+        "item_specification_1": "PRODUCT: HEAT EXCHANGER AIR-AIR",
+        "item_specification_2": "DESCRIPTION: REFRIGERATION AND FREEZING",
+        "item_specification_3": "EQUIPMENT AND HEAT PUMPS: EXCEPT",
+        "item_specification_4": "HOUSEHOLD TYPE EQUIPMENT",
+        "item_specification_5": "SERIAL NO: 8585C000-001",
+        "unit_of_sale": "EACH",
+        "terms_of_sale_1": "SUPPLIER REF: 123073",
+        "terms_of_sale_2": "PAYMENT: 60 DAYS NET",
+        "terms_of_sale_3": "CARRIAGE: FCA",
+        "terms_of_sale_4": "TERM: EX WORKS",
+        "currency": "POUND STERLING"
+      },
+      {
+        "identifier": "98765432101",
+        "supplier_number": "98765432101",
+        "item_number": "9876543210",
+        "item_specification_1": "PRODUCT: HEAT EXCHANGER WATER-WATER",
+        "item_specification_2": "DESCRIPTION: INDUSTRIAL COOLING",
+        "item_specification_3": "EQUIPMENT AND HEAT PUMPS: INDUSTRIAL",
+        "item_specification_4": "COMMERCIAL TYPE EQUIPMENT",
+        "item_specification_5": "SERIAL NO: 1234A567-890",
+        "unit_of_sale": "EACH",
+        "terms_of_sale_1": "SUPPLIER REF: 987654",
+        "terms_of_sale_2": "PAYMENT: 30 DAYS NET",
+        "terms_of_sale_3": "CARRIAGE: DDP",
+        "terms_of_sale_4": "TERM: FOB",
+        "currency": "EURO"
+      }
+    ]
+  }
+}
