@@ -15,7 +15,7 @@ RUN apt-get update \
 WORKDIR /app
 
 # Copy only the necessary files for poetry installation
-COPY pyproject.toml poetry.lock Makefile /app/
+COPY pyproject.toml poetry.lock /app/
 
 # Install Poetry
 RUN pip install poetry==1.5.1
